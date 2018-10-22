@@ -43,7 +43,7 @@
             let sendMessage  = document.querySelector('.send-message'),
                 enterMessage = document.querySelector('.enter-message'),
                 blockMessages = document.querySelector('.block-messages'),
-                message = '';            
+                message = 'Something went wrong...';            
             let templateMessage = `<div class="message">
                                         <div class="message__user">John</div>
                                         <div class="message__text">${message}</div>
@@ -59,10 +59,10 @@
 
             var channel = pusher.subscribe('chat');
             channel.bind('new-message', function (data) {
-                alert('ok');
-                console.log('%c' + JSON.parse(data), 'color:red');
-                message = data.data.message;
-                blockMessages.appendChild(templateMessage);
+                /* alert('ok');
+                console.log('%c' + data, 'color:red'); */
+                message = data.message;                
+                $(blockMessages).append(templateMessage);
             });
 
             sendMessage.addEventListener('click', function(e) {
