@@ -44,11 +44,7 @@
                 enterMessage = document.querySelector('.enter-message'),
                 blockMessages = document.querySelector('.block-messages'),
                 message = 'Something went wrong...';            
-            let templateMessage = `<div class="message">
-                                        <div class="message__user">John</div>
-                                        <div class="message__text">${message}</div>
-                                        <div class="message__time"></div>
-                                    </div>`;
+            
 
             Pusher.logToConsole = true;
 
@@ -60,8 +56,13 @@
             var channel = pusher.subscribe('chat');
             channel.bind('new-message', function (data) {
                 /* alert('ok');
-                console.log('%c' + data, 'color:red'); */
-                message = data.message;                
+                console.log('%c' + data, 'color:red'); */                
+                let message = data.message;
+                let templateMessage = `<div class="message">
+                                        <div class="message__user">John</div>
+                                        <div class="message__text">${message}</div>
+                                        <div class="message__time"></div>
+                                    </div>`;
                 $(blockMessages).append(templateMessage);
             });
 
