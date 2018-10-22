@@ -21,14 +21,23 @@
 </head>
 
 <body>
+    <div class="overlay active">
+        <div class="modal block-username">
+            <input type="text" class="enter-message" id="username" placeholder="Your name">
+            <a href="#" class="send-message" id="get-username">
+                <i class="material-icons">send</i>
+            </a>
+        </div>
+    </div>
+    
     <div class="wrapper">
         <div class="chat">
             <div class="block-messages">
 
             </div>
             <div class="block-new-message">
-                <input type="text" class="enter-message">
-                <a href="#" class="send-message">
+                <input type="text" id="enter-message" class="enter-message">
+                <a href="#" class="send-message" id="send-message">
                     <i class="material-icons">send</i>
                 </a>
             </div>
@@ -40,13 +49,26 @@
     <script>
         window.onload = function() {
 
-            let sendMessage  = document.querySelector('.send-message'),
-                enterMessage = document.querySelector('.enter-message'),
+            let usernameInput = document.getElementById('username'),
+                getUsername = document.getElementById('get-username'),
+                sendMessage  = document.getElementById('send-message'),
+                enterMessage = document.getElementById('enter-message'),
                 blockMessages = document.querySelector('.block-messages'),
-                message = 'Something went wrong...';            
+                username;
             
+            getUsername.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (!usernameInput.value) return;
+                usernameInput.closest('.overlay').classList.remove('active');
+                username = usernameInput.value;
+            })
 
-            Pusher.logToConsole = true;
+            usernameInput.addEventListener('keypress', function(e) {
+                if (e.keyCode === 13) {
+                    getUsername.click();
+                }
+            })
+            //Pusher.logToConsole = true;
 
             let pusher = new Pusher(keys['KEY'], {
                 cluster: 'eu',
@@ -59,7 +81,7 @@
                 console.log('%c' + data, 'color:red'); */                
                 let message = data.message;
                 let templateMessage = `<div class="message">
-                                        <div class="message__user">John</div>
+                                        <div class="message__user">${username}</div>
                                         <div class="message__text">${message}</div>
                                         <div class="message__time"></div>
                                     </div>`;
