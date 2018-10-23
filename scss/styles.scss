@@ -34,6 +34,13 @@
     flex-wrap: wrap;
     justify-content: flex-end;
     padding: 10px 0;
+    max-height: 60vh;
+    overflow-y: scroll;
+    overflow: -moz-scrollbars-none;
+    /* хром, сафари */
+    &::-webkit-scrollbar { width: 0; }
+    /* ie 10+ */
+    -ms-overflow-style: none;
     .message {
         width: 90%;
         text-align: right;

@@ -86,6 +86,7 @@
                                         <div class="message__time"></div>
                                     </div>`;
                 $(blockMessages).append(templateMessage);
+                blockMessages.scrollTop = 9999;
             });
 
             sendMessage.addEventListener('click', function(e) {

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -29,7 +30,15 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
-  padding: 10px 0; }
+  padding: 10px 0;
+  max-height: 60vh;
+  overflow-y: scroll;
+  overflow: -moz-scrollbars-none;
+  /* хром, сафари */
+  /* ie 10+ */
+  -ms-overflow-style: none; }
+  .block-messages::-webkit-scrollbar {
+    width: 0; }
   .block-messages .message {
     width: 90%;
     text-align: right;
