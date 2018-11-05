@@ -80,6 +80,7 @@
                 /* alert('ok');
                 console.log('%c' + data, 'color:red'); */                
                 let message = data.message;
+                username = data.username;
                 let templateMessage = `<div class="message">
                                         <div class="message__user">${username}</div>
                                         <div class="message__text">${message}</div>
@@ -97,7 +98,8 @@
                     method: 'post',
                     url: 'handler.php',
                     data: {
-                        message: enterMessage.value
+                        message: enterMessage.value,
+                        username: username
                     }
                 })
                 enterMessage.value = '';
