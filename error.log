@@ -1,4 +1,0 @@
-2018/10/20 19:23:45 [error] 19391#19391: *1 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Class 'Dotenv\Dotenv' not found in /Work/projects/chat/handler.php:2
-Stack trace:
-#0 {main}
-  thrown in /Work/projects/chat/handler.php on line 2" while reading response header from upstream, client: 127.0.0.1, server: chat.localhost, request: "GET /handler.php HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "chat.localhost"
