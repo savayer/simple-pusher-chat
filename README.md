@@ -1,7 +1,5 @@
 # Chat with Pusher API
 
-[View demo](https://chat.savayer.space)
-
 ### Installation
 
 create .env file with your app keys, then run commands:
